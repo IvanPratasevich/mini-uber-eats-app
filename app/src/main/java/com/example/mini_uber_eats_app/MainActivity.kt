@@ -1,20 +1,26 @@
 package com.example.mini_uber_eats_app
 
+import android.app.Application
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.activity.compose.setContent
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mini_uber_eats_app.ui.screens.RestaurantApp
+import com.example.mini_uber_eats_app.ui.viewmodel.RestaurantViewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        setContent {
+            val application = LocalContext.current.applicationContext as Application
+            val restaurantViewModel: RestaurantViewModel = viewModel(
+                factory = ViewModelProvider.AndroidViewModelFactory.getInstance(application),
+            )
+            RestaurantApp(viewModel = restaurantViewModel)
         }
     }
 }
