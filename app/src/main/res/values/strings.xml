@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Restaurants</string>
+    <string name="edit_title">Edit Details</string>
+    <string name="add_title">Add Restaurant</string>
+    <string name="name_label">Restaurant Name</string>
+    <string name="category_label">Category</string>
+    <string name="rating_label">Rating</string>
+    <string name="delivery_time_label">Delivery Time (min)</string>
+    <string name="address_label">Address</string>
+    <string name="description_label">Description</string>
+    <string name="name_hint">Enter name</string>
+    <string name="rating_hint">4.8</string>
+    <string name="delivery_time_hint">25-35</string>
+    <string name="address_hint">Address</string>
+    <string name="description_hint">Description</string>
+    <string name="save">Save Changes</string>
+    <string name="add_button">Add Restaurant</string>
+    <string name="back">Back</string>
+</resources>
